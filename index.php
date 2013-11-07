@@ -3,7 +3,7 @@
 $INCLUDE_HASH = "c43a1883e171eebc0133785753745816";
 
 //change path to the location of your config file
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../fitappv2/' . 'fitconfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/./' . 'fitconfig.php';
 require_once APPDOT_PATH . 'EZAppDotNet.php';
 
 require_once FA_PATH . 'commons.php';
@@ -54,9 +54,9 @@ if (isADNAuthed($app))
 			$profile_read = $rk -> doRunkeeperRequest('Profile', 'Read');
 			
 			template_signedInHeader($app, $profile_read);
-			
-			$count = getActivitiesToDisplay(count($rkActivities->items),intval($_GET['rkCount']));
-			
+
+			$count = getActivitiesToDisplay(count($rkActivities -> items), key_exists('rkCount', $_GET)?intval($_GET['rkCount']):5);
+
 			if (key_exists('openActivity', $_GET) && 0 < intval($_GET['openActivity']))
 			{
 				$openActivity = $_GET['openActivity'];
