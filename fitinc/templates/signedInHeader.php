@@ -9,6 +9,7 @@
    			
    		</div>
    		<div class="small-12 large-6 columns">
+   			<a href=".?action=settings" class="button alert tiny round">Settings</a></span>
    			<a href="logout.php" class="button alert tiny round">Sign out</a></span>
    					
    		</div>

@@ -54,28 +54,55 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
-body{
-  background-color:#060D02; 
+$fit-blue:#80DCF1;
+
+html {
+background: 53% 100% no-repeat url(../images/@fit-header.png);
+min-height: 100%;
 }
 
-header
-{
-  background-color:rgba(6,12,2,0.8);
-  color:#fff;
-  margin-bottom:1em;
+@media screen and (min-width: 30em) {
+  html { background-position: 54% 100% }
+}
+
+body{
+  background-color:#060D02; 
 }
 
 .small-text{
   font-size:50%;
 }
 
-header h1{
-  color:#80DCF1;
-}
-.userinfo h3
+.strike-through
 {
-  color:#80DCF1;
+  text-decoration:line-through
 }
+
+header {
+  background-color:rgba(6,12,2,0.8);
+  color:#fff;
+  margin-bottom:1em;
+  
+  h1{
+  color:$fit-blue;
+}}
+.userinfo {
+  h3 {
+  color:$fit-blue;
+}
+}
+
+.content{
+  
+  background-color:#fff;
+}
+
+input[type="checkbox"] + label, input[type="radio"] + label {
+  display: inline-block;
+  margin-left: 0.44444rem;
+  margin-right: 0.88889rem;
+  margin-bottom: 0;
+  vertical-align: baseline; }
 
 .activity
 {

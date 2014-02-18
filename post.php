@@ -1,8 +1,8 @@
 <?php
 
-print_r($_POST);
+/*print_r($_POST);
 print_r($_GET);
-
+*/
 $INCLUDE_HASH = "c43a1883e171eebc0133785753745816";
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../fitappv2/' . 'fitconfig.php';
 
