@@ -1,5 +1,5 @@
- <div class="small-8 columns"><h1>fit <small>Do you feel healthy?</small></h1></div>
-   <aside class="small-4 columns userinfo">
+ <div class="large-8 small-12 columns"><h1>fit <small>Do you feel healthy?</small></h1></div>
+   <aside class="large-4 small-12 columns userinfo">
    	<div class="row">
    		<h3><?=$data['user']['name']; ?></h3>   		
    	</div>
