@@ -4,11 +4,11 @@
    		<h3><?=$data['user']['name']; ?></h3>   		
    	</div>
    	<div class="row">
-   		<div class="small-12 large-6 columns">
+   		<div class="small-6 large-6 columns">
    			<img height=48 style="border:2px solid #000;" src="<?=$data['user']['avatar_image']['url']; ?>?h=48&amp;w=48" /><br />
    			
    		</div>
-   		<div class="small-12 large-6 columns">
+   		<div class="small-6 large-6 columns">
    			<a href=".?action=settings" class="button alert tiny round">Settings</a></span>
    			<a href="logout.php" class="button alert tiny round">Sign out</a></span>
    					
