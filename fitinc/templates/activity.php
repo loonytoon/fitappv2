@@ -29,14 +29,16 @@
 <textarea name="message" class="postContent" data-countfield-id="count<?php echo $i?>" rows=3>I&#8217;ve been <?php echo strtolower($value -> type); ?> - <?php echo $dist;?> in <?php echo unix2human(floor($value->duration));?>. <?php echo round($value->total_calories, 2);?> cal. <?php echo RK;?>
  #<?php echo HASHTAG ?></textarea>
  <div class="row">
- 	<div class="small-2 columns">
+ 	<div class="large-1 small-3 columns">
  	<input type="text" value="256" id="count<?php echo $i?>" />
  </div>
- <div class="small-10 columns right">
+ <div class="large-2 small-4 columns">
 <input class="linkAnnotation" name="annolnk" type="hidden" value=<?php echo $profile_read->profile; ?>/activity/<?php echo $activity_id; ?>>
 		<button name="postTo" id="postToAdn<?php echo $i?>" value="1" class="postButton button postToAdn round<?php echo $postBtnClass;?>" data-post-form-id="<?php echo $i; ?>">Post</button>
-		<button name="postTo" id="postToPatter<?php echo $i?>" value="2" class="postButton button postToPatter round<?php echo $patterBtnClass;?>" data-post-form-id="<?php echo $i; ?>">Patter</button>
-		<button name="postTo" id="postToPatterB<?php echo $i?>" value="3" class="postButton button postToPatterB round<?php echo $broadcastBtnClass;?>" data-post-form-id="<?php echo $i; ?>">Broadcast</button>
+		</div>
+		<div class="large-2 small-5 columns"><button name="postTo" id="postToPatter<?php echo $i?>" value="2" class="postButton button postToPatter round<?php echo $patterBtnClass;?>" data-post-form-id="<?php echo $i; ?>">Patter</button>
+		</div>
+		<div class="small-12 large-7 columns"><button name="postTo" id="postToPatterB<?php echo $i?>" value="3" class="postButton button postToPatterB round<?php echo $broadcastBtnClass;?>" data-post-form-id="<?php echo $i; ?>">Broadcast</button>
 
 </div></div>
 
