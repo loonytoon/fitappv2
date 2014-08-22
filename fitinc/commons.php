@@ -90,7 +90,7 @@ function verifyPostText($text) {
 	//its the corrent length so lets remove html and other fruityness
 	$text = strip_tags($text);
 	//is this step needed?
-	$text = htmlspecialchars($text);
+	//$text = htmlspecialchars($text);
 
 	return $text;
 }

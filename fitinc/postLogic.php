@@ -49,7 +49,8 @@ if (!isADNAuthed($app) || !isRKAuthed()) {
 		$msg = array();
 
 		$msg['text'] = verifyPostText($_POST['message']);
-
+		
+		$text = $msg['text'];
 		// = UTF-8
 		$link = verifyAnnoLnk($_POST['annolnk'], $activity_id);
 
@@ -57,32 +58,40 @@ if (!isADNAuthed($app) || !isRKAuthed()) {
 		$params = array('annotations' => $msg['annotations']);
 
 		$enc = mb_detect_encoding($msg['text']);
+		echo $enc;
 		if (strpos($msg['text'], RK) > 0) {
 			$msg['entities'] = buildEntities($msg['text'], $link, $enc);
 			$params['entities'] = $msg['entities'];
 		}
 
+		$msg['text'] = stripcslashes($msg['text']);
+		//$msg['text'] = htmlentities($msg['text']);
 		$_postTo = $_POST['postTo'];
-
+		$text = stripcslashes($text);
+	//	$text = htmlentities($text);
+		//echo $msg['text'].'<br/>';
+		//die($text);
 		if ($_postTo & 2) {
 			//echo "1st 2<br/>";
-			$text = $msg['text'] . ' ' . UFO;
+			$text .= ' ' . UFO;
 
 			$params['entities']['links'][] = array("len" => 3, "pos" => mb_strrpos($text, UFO, 0, $enc), "url" => "http://patter-app.net/room.html?channel=" . P_CHANNEL);
 			// additional annotations
+			
 			// {"type":"net.app.core.channel.invite","value":{"channel_id":"23835"}}]}
 			$params['annotations'][] = array('type' => 'net.app.core.channel.invite', 'value' => array('channel_id' => P_CHANNEL));
 
 		}
 
 		//echo $_postTo;
+		
 		$x = "";
-		if ($_postTo & 1 && strlen($msg['text']) < 257) {
+		if ($_postTo & 1 && strlen($text) < 257) {
 			//echo "1";
-			$x = $app -> createPost($msg['text'], $params);
+			$x = $app -> createPost($text, $params);
 		}
 
-		if ($_postTo == 3 && strlen($msg['text']) < 257) {
+		if ($_postTo == 3 && strlen($text) < 257) {
 			//echo "patter broadcast 3";
 			// additional annotations
 			// {"type": "net.patter-app.broadcast","value": {"id": "9578966","url": "https://alpha.app.net/cn/post/9578966"}}
@@ -90,7 +99,10 @@ if (!isADNAuthed($app) || !isRKAuthed()) {
 			$msg['annotations'][] = array('type' => 'net.patter-app.broadcast', 'value' => array('id' => $x['id'], 'url' => $x['canonical_url']));
 
 		}
-
+		/*echo "<strong>";
+		print_r($msg);
+		echo(json_encode($msg));
+		echo "</strong>";//*/
 		if ($_postTo & 2) {
 			//echo "2";
 			$app -> createMessage(P_CHANNEL, $msg);

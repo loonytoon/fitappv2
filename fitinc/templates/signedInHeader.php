@@ -16,6 +16,6 @@
    	</div>
    	<div class="row">
    		
-	Runkeeper:&#160;&#160;<a href="<?=$profile_read->profile;?>"><?=$profile_read->name;?></a>&#160;&#160;<?=$profile_read->athlete_type;?>
+	Runkeeper:&#160;&#160;<a href="<?=$profile_read->profile;?>"><?=$profile_read->name;?></a>
    	</div>
  </aside>

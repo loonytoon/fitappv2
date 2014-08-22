@@ -34,11 +34,11 @@ function buildAnnotations($link) {
 
 	$annotations[] = $crosspost;
 
-	$server = array("type" => "net.fit-app.server", "value" => array("code" => "c", "host" => "textdrive"));
+	$server = array("type" => "net.fit-app.server", "value" => array("code" => "c", "host" => "hostpapa"));
 
 	$annotations[] = $server;
 
-	$annotations[] = array("type" => "net.fit-app.auto", "value" => array("matic" => 1));
+	//$annotations[] = array("type" => "net.fit-app.auto", "value" => array("matic" => 1));
 
 	return $annotations;
 }
